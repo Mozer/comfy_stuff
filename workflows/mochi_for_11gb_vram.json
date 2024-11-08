@@ -143,40 +143,6 @@
       ]
     },
     {
-      "id": 38,
-      "type": "CLIPLoader",
-      "pos": {
-        "0": 40,
-        "1": 270
-      },
-      "size": {
-        "0": 315,
-        "1": 82
-      },
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            74,
-            75
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CLIPLoader"
-      },
-      "widgets_values": [
-        "t5xxl_fp8_e4m3fn.safetensors",
-        "mochi"
-      ]
-    },
-    {
       "id": 43,
       "type": "MochiVAELoader",
       "pos": {
@@ -188,7 +154,7 @@
         "1": 82
       },
       "flags": {},
-      "order": 3,
+      "order": 2,
       "mode": 0,
       "inputs": [
         {
@@ -216,15 +182,268 @@
       ]
     },
     {
+      "id": 7,
+      "type": "CLIPTextEncode",
+      "pos": {
+        "0": 413,
+        "1": 389
+      },
+      "size": {
+        "0": 425.27801513671875,
+        "1": 180.6060791015625
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 75
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            52
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 40,
+      "type": "MochiDecode",
+      "pos": {
+        "0": 1329,
+        "1": 361
+      },
+      "size": {
+        "0": 315,
+        "1": 246
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "vae",
+          "type": "MOCHIVAE",
+          "link": 85
+        },
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 87
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            82,
+            88
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MochiDecode"
+      },
+      "widgets_values": [
+        true,
+        false,
+        6,
+        160,
+        320,
+        0.25,
+        0.25,
+        false
+      ]
+    },
+    {
+      "id": 3,
+      "type": "KSampler",
+      "pos": {
+        "0": 865,
+        "1": 175
+      },
+      "size": {
+        "0": 315,
+        "1": 262
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 79
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 46
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 52
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 38
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            35,
+            86
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        291840493283147,
+        "randomize",
+        30,
+        4.5,
+        "euler",
+        "simple",
+        1
+      ]
+    },
+    {
+      "id": 38,
+      "type": "CLIPLoader",
+      "pos": {
+        "0": 40,
+        "1": 270
+      },
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            74,
+            75
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "t5xxl_fp8_e4m3fn_scaled.safetensors",
+        "mochi"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "CLIPTextEncode",
+      "pos": {
+        "0": 415,
+        "1": 186
+      },
+      "size": {
+        "0": 422.84503173828125,
+        "1": 164.31304931640625
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 74
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            46
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "A warm, vibrant scene with a french woman holding banana close to her ear and speaking. Its a close-up head shot. Background is yellow. —ar 16:9ю"
+      ]
+    },
+    {
+      "id": 28,
+      "type": "SaveAnimatedWEBP",
+      "pos": {
+        "0": 1974,
+        "1": 323
+      },
+      "size": [
+        255.64776611328125,
+        366
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 82
+        }
+      ],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "ComfyUI",
+        24,
+        true,
+        80,
+        "default",
+        null
+      ]
+    },
+    {
       "id": 50,
       "type": "VHS_VideoCombine",
       "pos": {
-        "0": 1689,
-        "1": 228
+        "0": 1713,
+        "1": 226
       },
       "size": [
-        214.7587890625,
-        436.56700652236236
+        219.61177575375086,
+        436.98779759646277
       ],
       "flags": {},
       "order": 12,
@@ -278,7 +497,7 @@
           "hidden": false,
           "paused": false,
           "params": {
-            "filename": "AnimateDiff_00006.mp4",
+            "filename": "AnimateDiff_00010.mp4",
             "subfolder": "",
             "type": "output",
             "format": "video/h264-mp4",
@@ -287,225 +506,6 @@
           "muted": false
         }
       }
-    },
-    {
-      "id": 3,
-      "type": "KSampler",
-      "pos": {
-        "0": 865,
-        "1": 175
-      },
-      "size": {
-        "0": 315,
-        "1": 262
-      },
-      "flags": {},
-      "order": 7,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 79
-        },
-        {
-          "name": "positive",
-          "type": "CONDITIONING",
-          "link": 46
-        },
-        {
-          "name": "negative",
-          "type": "CONDITIONING",
-          "link": 52
-        },
-        {
-          "name": "latent_image",
-          "type": "LATENT",
-          "link": 38
-        }
-      ],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            35,
-            86
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "KSampler"
-      },
-      "widgets_values": [
-        450411681948128,
-        "randomize",
-        30,
-        4.5,
-        "euler",
-        "simple",
-        1
-      ]
-    },
-    {
-      "id": 40,
-      "type": "MochiDecode",
-      "pos": {
-        "0": 1329,
-        "1": 361
-      },
-      "size": {
-        "0": 315,
-        "1": 246
-      },
-      "flags": {},
-      "order": 10,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "vae",
-          "type": "MOCHIVAE",
-          "link": 85
-        },
-        {
-          "name": "samples",
-          "type": "LATENT",
-          "link": 87
-        }
-      ],
-      "outputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "links": [
-            82,
-            88
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "MochiDecode"
-      },
-      "widgets_values": [
-        true,
-        false,
-        3,
-        160,
-        288,
-        0.167,
-        0.2,
-        false
-      ]
-    },
-    {
-      "id": 28,
-      "type": "SaveAnimatedWEBP",
-      "pos": {
-        "0": 1974,
-        "1": 334
-      },
-      "size": [
-        255.64777257239712,
-        340.7689478964794
-      ],
-      "flags": {},
-      "order": 11,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 82
-        }
-      ],
-      "outputs": [],
-      "properties": {},
-      "widgets_values": [
-        "ComfyUI",
-        24,
-        true,
-        80,
-        "default",
-        null
-      ]
-    },
-    {
-      "id": 7,
-      "type": "CLIPTextEncode",
-      "pos": {
-        "0": 413,
-        "1": 389
-      },
-      "size": {
-        "0": 425.27801513671875,
-        "1": 180.6060791015625
-      },
-      "flags": {},
-      "order": 6,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 75
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            52
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        ""
-      ]
-    },
-    {
-      "id": 6,
-      "type": "CLIPTextEncode",
-      "pos": {
-        "0": 415,
-        "1": 186
-      },
-      "size": {
-        "0": 422.84503173828125,
-        "1": 164.31304931640625
-      },
-      "flags": {},
-      "order": 5,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 74
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            46
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "A warm, vibrant scene with a young woman holding banana close to her ear and speaking. Its a close-up head shot. Background is yellow. —ar 16:9"
-      ]
     },
     {
       "id": 21,
@@ -653,10 +653,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.7627768444385465,
+      "scale": 0.922959981770648,
       "offset": [
-        35.346645919957844,
-        225.5907158911972
+        -166.7261370728745,
+        -0.47868037171053857
       ]
     }
   },
