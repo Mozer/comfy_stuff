@@ -1,0 +1,811 @@
+{
+  "last_node_id": 22,
+  "last_link_id": 25,
+  "nodes": [
+    {
+      "id": 11,
+      "type": "CLIPTextEncode",
+      "pos": {
+        "0": 407,
+        "1": 273
+      },
+      "size": {
+        "0": 425.27801513671875,
+        "1": 180.6060791015625
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 21
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            14
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 17,
+      "type": "OverrideCLIPDevice",
+      "pos": {
+        "0": 407,
+        "1": -122
+      },
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 19
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            20,
+            21
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OverrideCLIPDevice"
+      },
+      "widgets_values": [
+        "cpu"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "SaveAnimatedWEBP",
+      "pos": {
+        "0": 1608,
+        "1": 663
+      },
+      "size": {
+        "0": 795.66943359375,
+        "1": 577.5496215820312
+      },
+      "flags": {},
+      "order": 13,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 18
+        }
+      ],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "ComfyUI",
+        24,
+        true,
+        80,
+        "default"
+      ]
+    },
+    {
+      "id": 12,
+      "type": "CLIPLoader",
+      "pos": {
+        "0": 23,
+        "1": 60
+      },
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            19
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "t5xxl_fp8_e4m3fn_scaled.safetensors",
+        "mochi"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "LoadImage",
+      "pos": {
+        "0": 26,
+        "1": 415
+      },
+      "size": {
+        "0": 315,
+        "1": 314.00006103515625
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ComfyUI_00644_4.jpg",
+        "image"
+      ]
+    },
+    {
+      "id": 10,
+      "type": "CLIPTextEncode",
+      "pos": {
+        "0": 404,
+        "1": -14
+      },
+      "size": {
+        "0": 424.04302978515625,
+        "1": 232.18507385253906
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 20
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            13
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "A young french woman holding a banana close to her ear and speaking. Its a close-up head shot. background is yellow. face is crisp"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "MochiVAEEncoderLoader",
+      "pos": {
+        "0": 22,
+        "1": 207
+      },
+      "size": {
+        "0": 311.4483642578125,
+        "1": 82
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "torch_compile_args",
+          "type": "MOCHICOMPILEARGS",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "mochi_vae",
+          "type": "MOCHIVAE",
+          "links": [
+            1
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MochiVAEEncoderLoader"
+      },
+      "widgets_values": [
+        "mochi_preview_vae_encoder_bf16_.safetensors",
+        "bf16"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "MochiModelLoader",
+      "pos": {
+        "0": 18,
+        "1": -170
+      },
+      "size": {
+        "0": 315,
+        "1": 174
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "trigger",
+          "type": "CONDITIONING",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "compile_args",
+          "type": "MOCHICOMPILEARGS",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "mochi_model",
+          "type": "MOCHIMODEL",
+          "links": [
+            3
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MochiModelLoader"
+      },
+      "widgets_values": [
+        "mochi_preview_dit_fp8_e4m3fn.safetensors",
+        "fp8_e4m3fn",
+        "sdpa",
+        false,
+        "default"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "MochiSampler",
+      "pos": {
+        "0": 870,
+        "1": 219
+      },
+      "size": {
+        "0": 315,
+        "1": 534
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MOCHIMODEL",
+          "link": 3
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 13
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 14
+        },
+        {
+          "name": "opt_sigmas",
+          "type": "SIGMAS",
+          "link": 15,
+          "shape": 7
+        },
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 4,
+          "shape": 7
+        },
+        {
+          "name": "fastercache",
+          "type": "FASTERCACHEARGS",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "cfg_schedule",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "cfg_schedule"
+          },
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "links": [
+            9
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MochiSampler"
+      },
+      "widgets_values": [
+        848,
+        480,
+        13,
+        30,
+        7,
+        241551190584976,
+        "randomize",
+        0
+      ]
+    },
+    {
+      "id": 15,
+      "type": "MochiSigmaSchedule",
+      "pos": {
+        "0": 880,
+        "1": -21
+      },
+      "size": {
+        "0": 301.06195068359375,
+        "1": 186.0738983154297
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "links": [
+            15
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MochiSigmaSchedule"
+      },
+      "widgets_values": [
+        30,
+        0.025,
+        15,
+        0.6
+      ]
+    },
+    {
+      "id": 20,
+      "type": "VHS_VideoCombine",
+      "pos": {
+        "0": 1605,
+        "1": -151
+      },
+      "size": [
+        759.013671875,
+        766.3096255896227
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 23
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 24,
+        "loop_count": 0,
+        "filename_prefix": "mochi-img2vid",
+        "format": "video/nvenc_h264-mp4",
+        "pix_fmt": "yuv420p",
+        "bitrate": 10,
+        "megabit": true,
+        "save_metadata": true,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "mochi-img2vid_00004.mp4",
+            "subfolder": "",
+            "type": "output",
+            "format": "video/nvenc_h264-mp4",
+            "frame_rate": 24
+          },
+          "muted": false
+        }
+      }
+    },
+    {
+      "id": 8,
+      "type": "MochiVAELoader",
+      "pos": {
+        "0": 897,
+        "1": 824
+      },
+      "size": {
+        "0": 279.7024230957031,
+        "1": 82
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "torch_compile_args",
+          "type": "MOCHICOMPILEARGS",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "mochi_vae",
+          "type": "MOCHIVAE",
+          "links": [
+            17
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MochiVAELoader"
+      },
+      "widgets_values": [
+        "mochi_preview_vae_decoder_bf16.safetensors",
+        "bf16"
+      ]
+    },
+    {
+      "id": 16,
+      "type": "MochiDecodeSpatialTiling",
+      "pos": {
+        "0": 1232,
+        "1": 283
+      },
+      "size": {
+        "0": 311.5198059082031,
+        "1": 231.53453063964844
+      },
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "vae",
+          "type": "MOCHIVAE",
+          "link": 17
+        },
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 25
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            18,
+            23
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MochiDecodeSpatialTiling"
+      },
+      "widgets_values": [
+        true,
+        4,
+        4,
+        16,
+        1,
+        2,
+        true
+      ]
+    },
+    {
+      "id": 1,
+      "type": "MochiImageEncode",
+      "pos": {
+        "0": 483,
+        "1": 529
+      },
+      "size": {
+        "0": 315,
+        "1": 198
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "encoder",
+          "type": "MOCHIVAE",
+          "link": 1
+        },
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "links": [
+            4
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MochiImageEncode"
+      },
+      "widgets_values": [
+        true,
+        4,
+        4,
+        16,
+        1,
+        true
+      ]
+    },
+    {
+      "id": 9,
+      "type": "UnloadAllModels",
+      "pos": {
+        "0": 1218,
+        "1": 131
+      },
+      "size": {
+        "0": 210,
+        "1": 26
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "value",
+          "type": "*",
+          "link": 9
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "*",
+          "links": [
+            25
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UnloadAllModels"
+      },
+      "widgets_values": []
+    }
+  ],
+  "links": [
+    [
+      1,
+      3,
+      0,
+      1,
+      0,
+      "MOCHIVAE"
+    ],
+    [
+      2,
+      4,
+      0,
+      1,
+      1,
+      "IMAGE"
+    ],
+    [
+      3,
+      5,
+      0,
+      2,
+      0,
+      "MOCHIMODEL"
+    ],
+    [
+      4,
+      1,
+      0,
+      2,
+      4,
+      "LATENT"
+    ],
+    [
+      9,
+      2,
+      0,
+      9,
+      0,
+      "*"
+    ],
+    [
+      13,
+      10,
+      0,
+      2,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      14,
+      11,
+      0,
+      2,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      15,
+      15,
+      0,
+      2,
+      3,
+      "SIGMAS"
+    ],
+    [
+      17,
+      8,
+      0,
+      16,
+      0,
+      "MOCHIVAE"
+    ],
+    [
+      18,
+      16,
+      0,
+      6,
+      0,
+      "IMAGE"
+    ],
+    [
+      19,
+      12,
+      0,
+      17,
+      0,
+      "CLIP"
+    ],
+    [
+      20,
+      17,
+      0,
+      10,
+      0,
+      "CLIP"
+    ],
+    [
+      21,
+      17,
+      0,
+      11,
+      0,
+      "CLIP"
+    ],
+    [
+      23,
+      16,
+      0,
+      20,
+      0,
+      "IMAGE"
+    ],
+    [
+      25,
+      9,
+      0,
+      16,
+      1,
+      "LATENT"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.7627768444385477,
+      "offset": [
+        -254.26230585998593,
+        278.93513653011985
+      ]
+    }
+  },
+  "version": 0.4
+}
