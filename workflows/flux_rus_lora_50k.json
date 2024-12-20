@@ -1,0 +1,729 @@
+{
+  "last_node_id": 86,
+  "last_link_id": 247,
+  "nodes": [
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [
+        1664,
+        -227
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 50
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 238
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            228
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 56,
+      "type": "VAELoader",
+      "pos": [
+        1324,
+        -231
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            238
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "ae.safetensors"
+      ]
+    },
+    {
+      "id": 58,
+      "type": "UNETLoader",
+      "pos": [
+        1323,
+        30
+      ],
+      "size": [
+        315,
+        82
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            236
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "flux1-dev-fp8-e5m2.safetensors",
+        "default"
+      ]
+    },
+    {
+      "id": 85,
+      "type": "CLIPTextEncodeFlux",
+      "pos": [
+        955,
+        501
+      ],
+      "size": [
+        283.8055419921875,
+        219.46632385253906
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeFlux"
+      },
+      "widgets_values": [
+        "Red text !!!\"  on white background.",
+        "Red text \"!!!\"  on white background.",
+        2
+      ]
+    },
+    {
+      "id": 55,
+      "type": "DualCLIPLoader",
+      "pos": [
+        1324,
+        -121
+      ],
+      "size": [
+        315,
+        106
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            237
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DualCLIPLoader"
+      },
+      "widgets_values": [
+        "t5xxl_fp8_e4m3fn.safetensors",
+        "ViT-L-14-TEXT-detail-improved-hiT-GmP-TE-only-HF.safetensors",
+        "flux"
+      ]
+    },
+    {
+      "id": 51,
+      "type": "CLIPTextEncodeFlux",
+      "pos": [
+        1431,
+        363
+      ],
+      "size": [
+        210,
+        194.6269989013672
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 198,
+          "slot_index": 0
+        },
+        {
+          "name": "t5xxl",
+          "type": "STRING",
+          "link": 105,
+          "widget": {
+            "name": "t5xxl"
+          }
+        },
+        {
+          "name": "clip_l",
+          "type": "STRING",
+          "link": 106,
+          "slot_index": 2,
+          "widget": {
+            "name": "clip_l"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            101
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeFlux"
+      },
+      "widgets_values": [
+        "",
+        "",
+        3.5
+      ]
+    },
+    {
+      "id": 52,
+      "type": "PrimitiveNode",
+      "pos": [
+        1463,
+        401
+      ],
+      "size": [
+        210,
+        76
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            105,
+            106
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "t5xxl"
+          }
+        }
+      ],
+      "title": "Prompt",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 66,
+      "type": "Save_as_jpeg",
+      "pos": [
+        2196,
+        165
+      ],
+      "size": [
+        440.8526611328125,
+        471.5450134277344
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 228
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "Save_as_jpeg"
+      },
+      "widgets_values": [
+        "ComfyUI",
+        "yes",
+        80
+      ]
+    },
+    {
+      "id": 63,
+      "type": "LoraLoader",
+      "pos": [
+        1925,
+        149
+      ],
+      "size": [
+        251.162841796875,
+        126
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 236
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 237
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            201
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            198,
+            247
+          ],
+          "slot_index": 1,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoader"
+      },
+      "widgets_values": [
+        "rus_50000s.safetensors",
+        1,
+        0
+      ]
+    },
+    {
+      "id": 5,
+      "type": "EmptyLatentImage",
+      "pos": [
+        1713,
+        644
+      ],
+      "size": [
+        210,
+        106
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            233
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        512,
+        768,
+        1
+      ]
+    },
+    {
+      "id": 86,
+      "type": "Note",
+      "pos": [
+        1637,
+        148
+      ],
+      "size": [
+        282.48516845703125,
+        156.26223754882812
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "словарь замены русских букв\n\"А\": \"A\", \"Б\": \"ß\", \"В\": \"B\", \"Г\": \"Î\",\n\"Д\": \"ă\", \"Е\": \"E\", \"Ё\": \"É\", \"Ж\": \"ş\",\n\"З\": \"3\", \"И\": \"ù\", \"Й\": \"ü\", \"К\": \"K\",\n\"Л\": \"â\", \"М\": \"M\", \"Н\": \"H\", \"О\": \"O\",\n\"П\": \"á\", \"Р\": \"P\", \"С\": \"C\", \"Т\": \"T\", \n\"У\": \"Y\", \"Ф\": \"ö\", \"Х\": \"X\", \"Ц\": \"Ü\",\n\"Ч\": \"4\", \"Ш\": \"##\", \"Щ\": \"!!!\", \n\"Ъ\": \"ț\", \"Ы\": \"ä\", \"Ь\": \"ţ\", \"Э\": \"ó\",\n \"Ю\": \"ô\", \"Я\": \"®\""
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 33,
+      "type": "CLIPTextEncodeFlux",
+      "pos": [
+        1704,
+        489
+      ],
+      "size": [
+        210,
+        98
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 247,
+          "slot_index": 0
+        },
+        {
+          "name": "t5xxl",
+          "type": "STRING",
+          "link": 107,
+          "widget": {
+            "name": "t5xxl"
+          }
+        },
+        {
+          "name": "clip_l",
+          "type": "STRING",
+          "link": 108,
+          "slot_index": 2,
+          "widget": {
+            "name": "clip_l"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            246
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeFlux"
+      },
+      "widgets_values": [
+        "Big red text \"TEH3OP king\" on a round logo that looks like Burger king.\n",
+        "Big red text \"TEH3OP king\" on a round logo that looks like Burger king.\n",
+        3.5
+      ]
+    },
+    {
+      "id": 40,
+      "type": "PrimitiveNode",
+      "pos": [
+        1640,
+        341
+      ],
+      "size": [
+        275.8482971191406,
+        109.04674530029297
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            107,
+            108
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "t5xxl"
+          }
+        }
+      ],
+      "title": "Prompt",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "Big red text \"TEH3OP king\" on a round logo that looks like Burger king.\n"
+      ]
+    },
+    {
+      "id": 32,
+      "type": "KSampler",
+      "pos": [
+        1937,
+        317
+      ],
+      "size": [
+        238.17193603515625,
+        474
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 201,
+          "slot_index": 0
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 246,
+          "slot_index": 1
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 101,
+          "slot_index": 2
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 233,
+          "slot_index": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            50
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        1195,
+        "increment",
+        20,
+        1,
+        "euler",
+        "normal",
+        1
+      ]
+    }
+  ],
+  "links": [
+    [
+      50,
+      32,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      101,
+      51,
+      0,
+      32,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      105,
+      52,
+      0,
+      51,
+      1,
+      "STRING"
+    ],
+    [
+      106,
+      52,
+      0,
+      51,
+      2,
+      "STRING"
+    ],
+    [
+      107,
+      40,
+      0,
+      33,
+      1,
+      "STRING"
+    ],
+    [
+      108,
+      40,
+      0,
+      33,
+      2,
+      "STRING"
+    ],
+    [
+      198,
+      63,
+      1,
+      51,
+      0,
+      "CLIP"
+    ],
+    [
+      201,
+      63,
+      0,
+      32,
+      0,
+      "MODEL"
+    ],
+    [
+      228,
+      8,
+      0,
+      66,
+      0,
+      "IMAGE"
+    ],
+    [
+      233,
+      5,
+      0,
+      32,
+      3,
+      "LATENT"
+    ],
+    [
+      236,
+      58,
+      0,
+      63,
+      0,
+      "MODEL"
+    ],
+    [
+      237,
+      55,
+      0,
+      63,
+      1,
+      "CLIP"
+    ],
+    [
+      238,
+      56,
+      0,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      246,
+      33,
+      0,
+      32,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      247,
+      63,
+      1,
+      33,
+      0,
+      "CLIP"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.0152559799477217,
+      "offset": [
+        -1464.7209277340733,
+        21.098143229701353
+      ]
+    }
+  },
+  "version": 0.4
+}
