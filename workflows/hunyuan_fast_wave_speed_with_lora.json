@@ -801,7 +801,7 @@
       },
       "widgets_values": [
         "diffusion_model",
-        0.035,
+        0.1,
         0,
         1,
         -1
