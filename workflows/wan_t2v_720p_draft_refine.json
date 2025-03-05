@@ -251,7 +251,7 @@
           "hidden": false,
           "paused": true,
           "params": {
-            "filename": "wan_00048.mp4",
+            "filename": "wan_00049.mp4",
             "subfolder": "",
             "type": "output",
             "format": "video/h264-mp4",
@@ -572,69 +572,6 @@
       ]
     },
     {
-      "id": 49,
-      "type": "KSamplerAdvanced",
-      "pos": [
-        890.1005249023438,
-        196.29737854003906
-      ],
-      "size": [
-        315,
-        546
-      ],
-      "flags": {},
-      "order": 11,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 96
-        },
-        {
-          "name": "positive",
-          "type": "CONDITIONING",
-          "link": 97
-        },
-        {
-          "name": "negative",
-          "type": "CONDITIONING",
-          "link": 98
-        },
-        {
-          "name": "latent_image",
-          "type": "LATENT",
-          "link": 99
-        }
-      ],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            102
-          ],
-          "slot_index": 0
-        }
-      ],
-      "title": "KSampler (Advanced) Draft",
-      "properties": {
-        "Node name for S&R": "KSamplerAdvanced"
-      },
-      "widgets_values": [
-        "enable",
-        2,
-        "fixed",
-        20,
-        6,
-        "uni_pc",
-        "simple",
-        0,
-        15,
-        "enable"
-      ]
-    },
-    {
       "id": 51,
       "type": "KSamplerAdvanced",
       "pos": [
@@ -686,7 +623,7 @@
       },
       "widgets_values": [
         "disable",
-        2,
+        1,
         "fixed",
         20,
         6,
@@ -695,6 +632,69 @@
         15,
         20,
         "disable"
+      ]
+    },
+    {
+      "id": 49,
+      "type": "KSamplerAdvanced",
+      "pos": [
+        890.1005249023438,
+        196.29737854003906
+      ],
+      "size": [
+        315,
+        546
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 96
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 97
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 98
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 99
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            102
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "KSampler (Advanced) Draft",
+      "properties": {
+        "Node name for S&R": "KSamplerAdvanced"
+      },
+      "widgets_values": [
+        "enable",
+        1,
+        "fixed",
+        20,
+        6,
+        "uni_pc",
+        "simple",
+        0,
+        15,
+        "enable"
       ]
     }
   ],
@@ -848,10 +848,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.7627768444385626,
+      "scale": 1.2284597357367506,
       "offset": [
-        -10.875994202760609,
-        270.25349180853897
+        -817.5608187017777,
+        -190.12358950687621
       ]
     }
   },
