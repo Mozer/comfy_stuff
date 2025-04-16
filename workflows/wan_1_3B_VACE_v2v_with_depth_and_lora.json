@@ -1,7 +1,7 @@
 {
   "id": "c6e410bc-5e2c-460b-ae81-c91b6094fbb1",
   "revision": 0,
-  "last_node_id": 229,
+  "last_node_id": 230,
   "last_link_id": 422,
   "nodes": [
     {
@@ -118,7 +118,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 29,
+      "order": 30,
       "mode": 0,
       "inputs": [
         {
@@ -158,7 +158,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 28,
+      "order": 29,
       "mode": 0,
       "inputs": [
         {
@@ -232,7 +232,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 35,
+      "order": 36,
       "mode": 0,
       "inputs": [
         {
@@ -469,7 +469,7 @@
         234
       ],
       "flags": {},
-      "order": 30,
+      "order": 31,
       "mode": 0,
       "inputs": [
         {
@@ -565,7 +565,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 59,
+      "order": 60,
       "mode": 0,
       "inputs": [
         {
@@ -648,7 +648,7 @@
         46
       ],
       "flags": {},
-      "order": 36,
+      "order": 37,
       "mode": 0,
       "inputs": [
         {
@@ -897,7 +897,7 @@
         512.2513427734375
       ],
       "flags": {},
-      "order": 42,
+      "order": 43,
       "mode": 0,
       "inputs": [
         {
@@ -973,7 +973,7 @@
         170
       ],
       "flags": {},
-      "order": 60,
+      "order": 61,
       "mode": 0,
       "inputs": [
         {
@@ -1024,7 +1024,7 @@
         86
       ],
       "flags": {},
-      "order": 57,
+      "order": 58,
       "mode": 0,
       "inputs": [
         {
@@ -1081,7 +1081,7 @@
         150
       ],
       "flags": {},
-      "order": 43,
+      "order": 44,
       "mode": 0,
       "inputs": [
         {
@@ -1127,7 +1127,7 @@
         198
       ],
       "flags": {},
-      "order": 56,
+      "order": 57,
       "mode": 0,
       "inputs": [
         {
@@ -1180,7 +1180,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 41,
+      "order": 42,
       "mode": 0,
       "inputs": [
         {
@@ -1262,7 +1262,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 37,
+      "order": 38,
       "mode": 0,
       "inputs": [
         {
@@ -1319,7 +1319,7 @@
         804.8956298828125
       ],
       "flags": {},
-      "order": 55,
+      "order": 56,
       "mode": 0,
       "inputs": [
         {
@@ -1427,7 +1427,7 @@
         26
       ],
       "flags": {},
-      "order": 50,
+      "order": 51,
       "mode": 0,
       "inputs": [
         {
@@ -1464,7 +1464,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 46,
+      "order": 47,
       "mode": 0,
       "inputs": [
         {
@@ -1504,7 +1504,7 @@
         266
       ],
       "flags": {},
-      "order": 31,
+      "order": 32,
       "mode": 0,
       "inputs": [
         {
@@ -1589,7 +1589,7 @@
         58
       ],
       "flags": {},
-      "order": 44,
+      "order": 45,
       "mode": 0,
       "inputs": [
         {
@@ -1626,7 +1626,7 @@
         246
       ],
       "flags": {},
-      "order": 38,
+      "order": 39,
       "mode": 0,
       "inputs": [
         {
@@ -1655,7 +1655,7 @@
         478.1780090332031
       ],
       "flags": {},
-      "order": 53,
+      "order": 54,
       "mode": 0,
       "inputs": [
         {
@@ -1684,7 +1684,7 @@
         645.6438598632812
       ],
       "flags": {},
-      "order": 58,
+      "order": 59,
       "mode": 0,
       "inputs": [
         {
@@ -1760,7 +1760,7 @@
         261.5306701660156
       ],
       "flags": {},
-      "order": 33,
+      "order": 34,
       "mode": 0,
       "inputs": [
         {
@@ -1810,7 +1810,7 @@
         102
       ],
       "flags": {},
-      "order": 45,
+      "order": 46,
       "mode": 0,
       "inputs": [
         {
@@ -1966,7 +1966,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 32,
+      "order": 33,
       "mode": 0,
       "inputs": [
         {
@@ -2046,82 +2046,6 @@
       "bgcolor": "#3f5159"
     },
     {
-      "id": 188,
-      "type": "LoadImage",
-      "pos": [
-        1018.1796875,
-        4069.2724609375
-      ],
-      "size": [
-        210,
-        326
-      ],
-      "flags": {},
-      "order": 22,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            393
-          ]
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "white_sq_1024.png",
-        "image",
-        ""
-      ]
-    },
-    {
-      "id": 227,
-      "type": "LoadImage",
-      "pos": [
-        1248.7364501953125,
-        4062.428466796875
-      ],
-      "size": [
-        210,
-        326
-      ],
-      "flags": {},
-      "order": 23,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            417
-          ]
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "black_square_1024.png",
-        "image",
-        ""
-      ]
-    },
-    {
       "id": 228,
       "type": "ImageResizeKJ",
       "pos": [
@@ -2135,7 +2059,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 40,
+      "order": 41,
       "mode": 0,
       "inputs": [
         {
@@ -2217,7 +2141,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 39,
+      "order": 40,
       "mode": 0,
       "inputs": [
         {
@@ -2299,7 +2223,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 24,
+      "order": 22,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2333,7 +2257,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 25,
+      "order": 23,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2365,7 +2289,7 @@
         532.2531127929688
       ],
       "flags": {},
-      "order": 62,
+      "order": 63,
       "mode": 0,
       "inputs": [
         {
@@ -2441,7 +2365,7 @@
         58
       ],
       "flags": {},
-      "order": 47,
+      "order": 48,
       "mode": 0,
       "inputs": [
         {
@@ -2479,7 +2403,7 @@
         246
       ],
       "flags": {},
-      "order": 51,
+      "order": 52,
       "mode": 0,
       "inputs": [
         {
@@ -2508,7 +2432,7 @@
         258
       ],
       "flags": {},
-      "order": 52,
+      "order": 53,
       "mode": 0,
       "inputs": [
         {
@@ -2537,7 +2461,7 @@
         86
       ],
       "flags": {},
-      "order": 49,
+      "order": 50,
       "mode": 0,
       "inputs": [
         {
@@ -2598,7 +2522,7 @@
         126
       ],
       "flags": {},
-      "order": 61,
+      "order": 62,
       "mode": 0,
       "inputs": [
         {
@@ -2643,7 +2567,7 @@
         222
       ],
       "flags": {},
-      "order": 34,
+      "order": 35,
       "mode": 0,
       "inputs": [
         {
@@ -2701,7 +2625,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 48,
+      "order": 49,
       "mode": 0,
       "inputs": [
         {
@@ -2739,7 +2663,7 @@
         364.2047424316406
       ],
       "flags": {},
-      "order": 26,
+      "order": 24,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2781,7 +2705,7 @@
         310
       ],
       "flags": {},
-      "order": 54,
+      "order": 55,
       "mode": 0,
       "inputs": [
         {
@@ -2875,7 +2799,7 @@
         106
       ],
       "flags": {},
-      "order": 27,
+      "order": 25,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2896,6 +2820,105 @@
         "8",
         0.30000000000000004,
         0.8000000000000002
+      ]
+    },
+    {
+      "id": 230,
+      "type": "Note",
+      "pos": [
+        1002.3228149414062,
+        4424.38818359375
+      ],
+      "size": [
+        437.805419921875,
+        88
+      ],
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "white and black squares png:\nhttps://github.com/Mozer/comfy_stuff/blob/main/input/blk_square_1024.png\nhttps://github.com/Mozer/comfy_stuff/blob/main/input/white_square_1024.png"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 188,
+      "type": "LoadImage",
+      "pos": [
+        1018.1796875,
+        4050.287109375
+      ],
+      "size": [
+        210,
+        326
+      ],
+      "flags": {},
+      "order": 27,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            393
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "white_sq_1024.png",
+        "image",
+        ""
+      ]
+    },
+    {
+      "id": 227,
+      "type": "LoadImage",
+      "pos": [
+        1248.7364501953125,
+        4054.611328125
+      ],
+      "size": [
+        210,
+        326
+      ],
+      "flags": {},
+      "order": 28,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            417
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "black_square_1024.png",
+        "image",
+        ""
       ]
     }
   ],
@@ -3388,10 +3411,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.6727499949325921,
+      "scale": 0.8954302432552804,
       "offset": [
-        -749.7224718815297,
-        -3081.4041284004857
+        -709.5663566834544,
+        -3743.6243342361618
       ]
     },
     "node_versions": {
