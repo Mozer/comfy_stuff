@@ -1,0 +1,41 @@
+# resolution, caption_extension, target_frames, frame_extraction, frame_stride, frame_sample, 
+# batch_size, num_repeats, enable_bucket, bucket_no_upscale should be set in either general or datasets
+
+
+# general configurations
+[general]
+caption_extension = ".txt"
+batch_size = 16
+enable_bucket = true
+bucket_no_upscale = false
+
+
+
+
+# head: Extract the first N frames from the video.
+# chunk: Extract frames by splitting the video into chunks of N frames.
+# slide: Extract frames from the video with a stride of frame_stride.
+# uniform: Extract frame_sample samples uniformly from the video.
+# NOTE: Please do not include 1 in target_frames if you are using the frame_extraction "chunk". It will make the all frames to be extracted.
+
+# More info here: https://github.com/Kvento/musubi-tuner-wan-gui/blob/main/dataset/dataset_config.md
+
+
+
+
+# image  dataset  configurations
+[[datasets]]
+resolution = [640, 1024]
+image_directory = "c:\\DATA\\SD\\musubi-tuner-wan-gui\\dataset\\emm4w\\images" # path to your image dataset
+cache_directory = "c:\\DATA\\SD\\musubi-tuner-wan-gui\\dataset\\emm4w\\cache" # recommended to set cache directory
+num_repeats = 1
+
+
+# video dataset (not active), also set batch_size=1
+#[[datasets]]
+#resolution = [480, 852]
+#video_directory = "c:\\DATA\\SD\\musubi-tuner-wan-gui\\dataset\\panties_drop\\video"  # path to your video dataset
+#cache_directory = "c:\\DATA\\SD\\musubi-tuner-wan-gui\\dataset\\panties_drop\\video_cache" # recommended to set cache directory
+#target_frames = [33, 49, 65, 81] # 81 frames 480x852 batch 1 takes 17.6 GB
+#frame_extraction = "head"
+#num_repeats = 1
