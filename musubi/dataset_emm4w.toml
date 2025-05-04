@@ -5,7 +5,7 @@
 # general configurations
 [general]
 caption_extension = ".txt"
-batch_size = 16
+batch_size = 4
 enable_bucket = true
 bucket_no_upscale = false
 
