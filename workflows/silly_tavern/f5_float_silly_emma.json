@@ -1,0 +1,125 @@
+{
+  "3": {
+    "inputs": {
+      "image": "ComfyUI_00463_2(2).jpg"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "6": {
+    "inputs": {
+      "frame_rate": [
+        "11",
+        0
+      ],
+      "loop_count": 0,
+      "filename_prefix": "AnimateDiff",
+      "format": "video/nvenc_h264-mp4",
+      "pix_fmt": "yuv420p",
+      "bitrate": 10,
+      "megabit": true,
+      "save_metadata": true,
+      "pingpong": false,
+      "save_output": true,
+      "images": [
+        "17",
+        0
+      ],
+      "audio": [
+        "36",
+        0
+      ]
+    },
+    "class_type": "VHS_VideoCombine",
+    "_meta": {
+      "title": "Video Combine 🎥🅥🅗🅢"
+    }
+  },
+  "11": {
+    "inputs": {
+      "value": 25
+    },
+    "class_type": "PrimitiveFloat",
+    "_meta": {
+      "title": "FPS"
+    }
+  },
+  "15": {
+    "inputs": {
+      "model": "FLOAT.safetensors",
+      "target_device": "cuda",
+      "cudnn_benchmark": false
+    },
+    "class_type": "LoadFloatModelsOpt",
+    "_meta": {
+      "title": "Load FLOAT Models (Opt)"
+    }
+  },
+  "17": {
+    "inputs": {
+      "a_cfg_scale": 2,
+      "e_cfg_scale": 1,
+      "fps": [
+        "11",
+        0
+      ],
+      "emotion": "none",
+      "face_align": true,
+      "seed": 485758255641360,
+      "ref_image": [
+        "3",
+        0
+      ],
+      "ref_audio": [
+        "36",
+        0
+      ],
+      "float_pipe": [
+        "15",
+        0
+      ]
+    },
+    "class_type": "FloatProcessOpt",
+    "_meta": {
+      "title": "FLOAT Process (Opt)"
+    }
+  },
+  "33": {
+    "inputs": {
+      "audioUI": "",
+      "audio": [
+        "36",
+        0
+      ]
+    },
+    "class_type": "PreviewAudio",
+    "_meta": {
+      "title": "PreviewAudio"
+    }
+  },
+  "36": {
+    "inputs": {
+      "sample": "emma_ru_xtts_3.wav",
+      "speech": "%prompt%",
+      "seed": 1346,
+      "model": "model://ru.safetensors",
+      "vocoder": "auto",
+      "speed": 1,
+      "model_type": "F5TTS_v1_Base",
+      "sample_text": "",
+      "target_rms": 0.1,
+      "cross_fade_duration": 0,
+      "nfe_step": 32,
+      "cfg_strength": 2,
+      "sway_sampling_coef": -1,
+      "speed_type": "torch-time-stretch",
+      "fix_duration": -1
+    },
+    "class_type": "F5TTSAudioAdvanced",
+    "_meta": {
+      "title": "F5-TTS Audio advanced"
+    }
+  }
+}

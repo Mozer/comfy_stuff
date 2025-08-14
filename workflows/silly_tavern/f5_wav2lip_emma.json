@@ -1,0 +1,106 @@
+{
+  "1": {
+    "inputs": {
+      "mode": "repetitive",
+      "face_detect_batch": 4,
+      "model_file": "wav2lip_gan.pth",
+      "pad_bottom": 10,
+      "fps": [
+        "9",
+        0
+      ],
+      "images": [
+        "2",
+        0
+      ],
+      "audio": [
+        "10",
+        0
+      ]
+    },
+    "class_type": "Wav2Lip",
+    "_meta": {
+      "title": "Wav2Lip"
+    }
+  },
+  "2": {
+    "inputs": {
+      "video": "emma_wm_300.mp4",
+      "force_rate": [
+        "9",
+        0
+      ],
+      "custom_width": 0,
+      "custom_height": 0,
+      "frame_load_cap": 0,
+      "skip_first_frames": 1,
+      "select_every_nth": 1,
+      "format": "Wan"
+    },
+    "class_type": "VHS_LoadVideo",
+    "_meta": {
+      "title": "Load Video (Upload) 🎥🅥🅗🅢"
+    }
+  },
+  "4": {
+    "inputs": {
+      "frame_rate": [
+        "9",
+        0
+      ],
+      "loop_count": 0,
+      "filename_prefix": "AnimateDiff",
+      "format": "video/h264-mp4",
+      "pix_fmt": "yuv420p",
+      "crf": 10,
+      "save_metadata": true,
+      "trim_to_audio": false,
+      "pingpong": false,
+      "save_output": true,
+      "images": [
+        "1",
+        0
+      ],
+      "audio": [
+        "1",
+        1
+      ]
+    },
+    "class_type": "VHS_VideoCombine",
+    "_meta": {
+      "title": "Video Combine 🎥🅥🅗🅢"
+    }
+  },
+  "9": {
+    "inputs": {
+      "value": 30
+    },
+    "class_type": "PrimitiveFloat",
+    "_meta": {
+      "title": "FPS"
+    }
+  },
+  "10": {
+    "inputs": {
+      "sample": "emma_ru_xtts_3.wav",
+      "speech": "%prompt%",
+      "seed": 796,
+      "model": "model://ru.safetensors",
+      "vocoder": "auto",
+      "speed": 1,
+      "model_type": "F5TTS_v1_Base",
+      "sample_text": "",
+      "target_rms": 0.1,
+      "cross_fade_duration": 0,
+      "nfe_step": 32,
+      "cfg_strength": 2,
+      "sway_sampling_coef": -1,
+      "speed_type": "torch-time-stretch",
+      "fix_duration": -1
+    },
+    "class_type": "F5TTSAudioAdvanced",
+    "_meta": {
+      "title": "F5-TTS Audio advanced"
+    }
+  }
+}
