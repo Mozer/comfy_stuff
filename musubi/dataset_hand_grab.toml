@@ -1,0 +1,33 @@
+# resolution, caption_extension, target_frames, frame_extraction, frame_stride, frame_sample, 
+# batch_size, num_repeats, enable_bucket, bucket_no_upscale should be set in either general or datasets
+
+
+# general configurations
+[general]
+caption_extension = ".txt"
+batch_size = 1
+enable_bucket = true
+bucket_no_upscale = false
+
+
+
+
+# head: Extract the first N frames from the video.
+# chunk: Extract frames by splitting the video into chunks of N frames.
+# slide: Extract frames from the video with a stride of frame_stride.
+# uniform: Extract frame_sample samples uniformly from the video.
+# NOTE: Please do not include 1 in target_frames if you are using the frame_extraction "chunk". It will make the all frames to be extracted.
+
+# More info here: https://github.com/Kvento/musubi-tuner-wan-gui/blob/main/dataset/dataset_config.md
+
+
+
+
+# image  dataset  configurations
+[[datasets]]
+#resolution = [768, 768]	# swap 0, batch 1, takes 22.6 vram (4.17 s/it). batch 2 takes 24 vram (8.60 s/it)
+resolution = [1024, 1024]	# swap 0, takes 23.9 vram ( 8.50 s/it)
+#resolution = [1300, 1300]	# swap 8, takes 24.2 vram (16.68 s/it)
+image_directory = "c:\\DATA\\SD\\musubi-tuner\\dataset\\hand_grab\\images" # path to your image dataset
+cache_directory = "c:\\DATA\\SD\\musubi-tuner\\dataset\\hand_grab\\cache" # recommended to set cache directory
+num_repeats = 1
