@@ -1,0 +1,59 @@
+# для удобства сохраните команды в bat файлы
+
+# 1. подготавливаем кэш vae и text_encoder. В папке musubi-tuner:
+
+call conda activate musubi
+python src/musubi_tuner/qwen_image_cache_latents.py ^
+    --dataset_config "c:\DATA\SD\musubi-tuner\dataset\dataset_hand_grab.toml" ^
+    --vae "c:\DATA\SD\ComfyUI_windows_portable_nvidia\ComfyUI_windows_portable\ComfyUI\models\vae\diffusion_pytorch_model.safetensors"
+
+python src/musubi_tuner/qwen_image_cache_text_encoder_outputs.py ^
+    --dataset_config "c:\....\dataset_hand_grab.toml" ^
+    --text_encoder "c:\...\qwen_2.5_vl_7b.safetensors" ^
+    --batch_size 1
+	
+	
+	
+# 2. запускаем тренировку:
+# (Если у вас 2+ видюхи в винде - ограничим до одной, иначе - ошибка libuv)
+
+set USE_LIBUV=0
+set CUDA_VISIBLE_DEVICES=0
+call conda activate musubi
+accelerate launch --num_cpu_threads_per_process 1 ^
+    --mixed_precision bf16 qwen_image_train_network.py ^
+    --dit "c:\....\qwen_image_bf16.safetensors" ^
+    --vae "c:\...\vae\diffusion_pytorch_model.safetensors" ^
+    --text_encoder "c:\...\qwen_2.5_vl_7b.safetensors" ^
+    --dataset_config "c:\...\dataset_hand_grab.toml" ^
+    --sdpa ^
+	--mixed_precision bf16 ^
+	--fp8_base ^
+	--fp8_vl ^
+    --timestep_sampling shift ^
+    --weighting_scheme none --discrete_flow_shift 2.2 ^
+    --optimizer_type adamw8bit ^
+	--learning_rate 5e-5 ^
+	--gradient_checkpointing ^
+    --max_data_loader_n_workers 2 ^
+	--persistent_data_loader_workers ^
+    --network_module networks.lora_qwen_image ^
+    --network_dim 16 ^
+    --max_train_epochs 100 ^
+	--save_every_n_steps 400 ^
+	--seed 42 ^
+	--blocks_to_swap 8 ^
+	--xformers ^
+    --output_dir output ^
+	--output_name qwen_hand_grab
+# чтобы продолжить существующую лору: --network_weights "c:\...\output\qwen_hand_grab-000006.safetensors" ^
+# blocks_to_swap уставите свое значенеие, чтобы все влезало в vram. при 1024x1024 и 24GB vram: blocks_to_swap 0
+
+
+
+# 3. опционально конвертируем готовую лору в формат diffusers (можно не делать, в комфи и так работает)
+call conda activate musubi
+python src/musubi_tuner/convert_lora.py ^
+	--input "c:\DATA\SD\musubi-tuner\output\qwen_hand_grab-000018.safetensors" ^
+	--output "c:\DATA\SD\ComfyUI_windows_portable_nvidia\ComfyUI_windows_portable\ComfyUI\models\loras\qwen_hand_grab_6000s.safetensors" ^
+	--target "other"
