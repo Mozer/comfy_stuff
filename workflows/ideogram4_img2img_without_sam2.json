@@ -2014,29 +2014,6 @@
       ]
     },
     {
-      "id": 331,
-      "type": "Note",
-      "pos": [
-        7344.858389758149,
-        -573.2686800146437
-      ],
-      "size": [
-        305.9075855186511,
-        347.74644756515033
-      ],
-      "flags": {},
-      "order": 12,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "properties": {},
-      "widgets_values": [
-        "int8 nodes\nhttps://github.com/BobJohnson24/ComfyUI-INT8-Fast\n\nint8 models\nhttps://huggingface.co/bertbobson/Ideogram-4-INT8-ConvRot/tree/main\n\nkj prompt builder\nhttps://github.com/kijai/ComfyUI-KJNodes\n\n\nclip to another cuda\nhttps://gist.github.com/city96/30743dfdfe129b331b5676a79c3a8a39\n\nmy OpenAI.CaptionImage node with llama.cpp server\nhttps://github.com/Mozer/ComfyUI-OpenAI\n(you can use online free API from mistral or openrouter)\n"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
       "id": 359,
       "type": "OpenAI.CaptionImage",
       "pos": [
@@ -2081,6 +2058,29 @@
         1500,
         0.4
       ]
+    },
+    {
+      "id": 331,
+      "type": "Note",
+      "pos": [
+        7344.858389758149,
+        -573.2686800146437
+      ],
+      "size": [
+        305.9075855186511,
+        347.74644756515033
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "int8 nodes\nhttps://github.com/BobJohnson24/ComfyUI-INT8-Fast\n\nint8 models\nhttps://huggingface.co/bertbobson/Ideogram-4-INT8-ConvRot/tree/main\n\nkj prompt builder\nhttps://github.com/kijai/ComfyUI-KJNodes\n\n\nclip to another cuda\nhttps://gist.github.com/city96/30743dfdfe129b331b5676a79c3a8a39\n\nmy OpenAI.CaptionImage node with llama.cpp server\nhttps://github.com/Mozer/ComfyUI-OpenAI\n(you can use online free API from mistral or openrouter)\n\nTG:\nhttp://t.me/tensorbanana"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
     }
   ],
   "links": [
@@ -3241,10 +3241,10 @@
   "extra": {
     "frontendVersion": "1.45.15",
     "ds": {
-      "scale": 0.8390545288824249,
+      "scale": 1.3513057093104348,
       "offset": [
-        -7718.418586880895,
-        -426.64757765311026
+        -7069.077062107708,
+        741.020690356452
       ]
     },
     "favoritedWidgets": {

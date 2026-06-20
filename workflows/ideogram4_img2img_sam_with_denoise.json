@@ -68,45 +68,6 @@
       "widgets_values": []
     },
     {
-      "id": 17,
-      "type": "PreviewAny",
-      "pos": [
-        2070.349243332616,
-        1003.6014108132318
-      ],
-      "size": [
-        309.5944682143754,
-        266.49990050352903
-      ],
-      "flags": {},
-      "order": 28,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "source",
-          "type": "*",
-          "link": 59
-        }
-      ],
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": null
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.24.0",
-        "Node name for S&R": "PreviewAny"
-      },
-      "widgets_values": [
-        null,
-        null,
-        null
-      ]
-    },
-    {
       "id": 22,
       "type": "PreviewAny",
       "pos": [
@@ -1500,30 +1461,6 @@
       ]
     },
     {
-      "id": 35,
-      "type": "Note",
-      "pos": [
-        333.9349547262961,
-        262.4381423564219
-      ],
-      "size": [
-        421.8864387050643,
-        262.1582775375292
-      ],
-      "flags": {},
-      "order": 9,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "title": "nodes",
-      "properties": {},
-      "widgets_values": [
-        "int8 nodes\nhttps://github.com/BobJohnson24/ComfyUI-INT8-Fast\n\nint8 models\nhttps://huggingface.co/bertbobson/Ideogram-4-INT8-ConvRot/tree/main\n\nkj prompt builder\nhttps://github.com/kijai/ComfyUI-KJNodes\n\nsam2\nhttps://github.com/neverbiasu/ComfyUI-SAM2\n\nclip to another cuda\nhttps://gist.github.com/city96/30743dfdfe129b331b5676a79c3a8a39\n\nmy OpenAI.CaptionImage node with llama.cpp server\nhttps://github.com/Mozer/ComfyUI-OpenAI\n(you can use online free API from mistral or openrouter)\n"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
       "id": 3,
       "type": "OverrideCLIPDevice",
       "pos": [
@@ -1757,7 +1694,7 @@
         88
       ],
       "flags": {},
-      "order": 10,
+      "order": 9,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -1821,6 +1758,69 @@
       "widgets_values": [
         "face, hair",
         0.25
+      ]
+    },
+    {
+      "id": 35,
+      "type": "Note",
+      "pos": [
+        333.9349547262961,
+        262.4381423564219
+      ],
+      "size": [
+        431.8356939927472,
+        265.14302679747175
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "nodes",
+      "properties": {},
+      "widgets_values": [
+        "int8 nodes\nhttps://github.com/BobJohnson24/ComfyUI-INT8-Fast\n\nint8 models\nhttps://huggingface.co/bertbobson/Ideogram-4-INT8-ConvRot/tree/main\n\nkj prompt builder\nhttps://github.com/kijai/ComfyUI-KJNodes\n\nsam2\nhttps://github.com/neverbiasu/ComfyUI-SAM2\n\nclip to another cuda\nhttps://gist.github.com/city96/30743dfdfe129b331b5676a79c3a8a39\n\nmy OpenAI.CaptionImage node with llama.cpp server\nhttps://github.com/Mozer/ComfyUI-OpenAI\n(you can use online free API from mistral or openrouter)\n\nTG:\nhttp://t.me/tensorbanana\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 17,
+      "type": "PreviewAny",
+      "pos": [
+        2076.758593385962,
+        969.9524550613021
+      ],
+      "size": [
+        309.5944682143754,
+        266.49990050352903
+      ],
+      "flags": {},
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 59
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.24.0",
+        "Node name for S&R": "PreviewAny"
+      },
+      "widgets_values": [
+        null,
+        null,
+        null
       ]
     }
   ],
@@ -2214,10 +2214,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.6934334949441353,
+      "scale": 1.0152559799477088,
       "offset": [
-        -1348.6246906234849,
-        -984.3553880607996
+        -195.03016546489957,
+        -25.33318382851526
       ]
     },
     "frontendVersion": "1.45.15",
